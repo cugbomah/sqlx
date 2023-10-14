@@ -1,0 +1,25 @@
+[package]
+name = "sqlx_example"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[[bin]]
+name = "sqlx_example"
+path = "src/main.rs"
+
+[dependencies]
+warp = "0.3"
+sqlx = { version = "0.7.2", features = [
+    "postgres",
+    "runtime-tokio-rustls",
+    "uuid",
+    "time",
+    "macros",
+] }
+serde = { version = "1.0", features = ["derive"] }
+uuid = { version = "1.4.1", features = ["v4", "serde"] }
+tokio = { version = "1", features = ["full"] }
+chrono = { version = "0.4", features = ["serde"] }
+dotenvy = "0.15.7"
